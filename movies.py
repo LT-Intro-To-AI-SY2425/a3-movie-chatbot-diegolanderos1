@@ -25,6 +25,17 @@ movie_db: List[Tuple[str, str, int, List[str]]] = [
         ],  # actors/actresses
     ),
     (
+        "the book of life",
+        "jorge gutierrez",
+        2014,
+        [
+            "Channing Tatum",
+            "Diego Luna",
+            "Zoë Saldana",
+            "Jorge Gutierrez",
+        ],
+    ),
+    (
         "the big easy",
         "jim mcbride",
         1987,

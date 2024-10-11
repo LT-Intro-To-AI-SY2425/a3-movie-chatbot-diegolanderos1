@@ -156,11 +156,11 @@ def title_by_director(matches: List[str]) -> List[str]:
     Returns:
         a list of movies titles directed by the passed in director
     """
-    title = matches [0]
+    director = matches [0]
     result = []
     for movie in movie_db:
-        if title == get_title(movie):
-            result.append(get_director(movie))
+        if director == get_director(movie):
+            result.append(get_title(movie))
     return result
 
 def actors_by_title(matches: List[str]) -> List[str]:
@@ -210,7 +210,7 @@ def title_by_actor(matches: List[str]) -> List[str]:
     """
     original = matches[0]
     result = []
-    for movie in movie.db:
+    for movie in movie_db:
         actors = get_actors(movie)
         for actor in actors:
             if original == actor:
@@ -255,13 +255,15 @@ def search_pa_list(src: List[str]) -> List[str]:
         ["No answers"] if it finds a match but no answers
     """
     for pattern, action in pa_list:
-        print(pattern, src, action)
+        #print(pattern, src, action)
         mat = match(pattern, src)
-        print(mat)
+        #print(mat)
         if mat != None:
             #print("FOUND")
             result = action(mat)
             #print(result)
+            if result == []:
+                result.append("No answers")
             return result
     return["I don't understand"]
 
